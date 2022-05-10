@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="500.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csan.AdditionController">
+        <TextArea fx:id="textAreaInformation" prefHeight="500.0" prefWidth="602.0">
+
+        </TextArea>
+</AnchorPane>
