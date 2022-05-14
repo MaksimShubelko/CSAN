@@ -3,7 +3,7 @@ package com.example.csan.model.entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Query extends BaseEntity {
+public class Query {
     private int queryId;
     private String query;
     private LocalDateTime date;

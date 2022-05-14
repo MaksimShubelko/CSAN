@@ -1,11 +1,9 @@
 package com.example.csan.model.dao;
 
-import com.example.csan.model.entity.BaseEntity;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public interface ResultSetHandler<T extends BaseEntity> {
+public interface ResultSetHandler<T> {
 
     /**
      * Result to object

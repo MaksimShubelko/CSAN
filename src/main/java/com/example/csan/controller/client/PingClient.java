@@ -73,7 +73,6 @@ public class PingClient implements Runnable {
                         long afterReceiving = System.nanoTime();
                         sequence_number++;
                         if (afterReceiving - beforeSending > timeToWait * 1000L) {
-                            System.out.println(afterReceiving - beforeSending);
                             stringBuffer.append("Timeout for packet ")
                                     .append(sequence_number - 1)
                                     .append("\n");
@@ -99,7 +98,6 @@ public class PingClient implements Runnable {
         InputStreamReader isr = new InputStreamReader(bais);
         BufferedReader br = new BufferedReader(isr);
         String line = br.readLine();
-        System.out.println("set result");
         stringBuffer.append("Received from ")
                 .append(request.getAddress())
                 .append(": ")

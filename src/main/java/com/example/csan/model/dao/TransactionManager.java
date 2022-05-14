@@ -5,11 +5,6 @@ import com.example.csan.model.connection.ConnectionPool;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * class TransactionManager
- *
- * @author M.Shubelko
- */
 public class TransactionManager {
 
     private static final TransactionManager instance = new TransactionManager();

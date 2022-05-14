@@ -1,16 +1,9 @@
 package com.example.csan.model.dao;
 
-import com.example.csan.model.entity.BaseEntity;
 import java.sql.*;
 import java.util.*;
 
-
-/**
- * class JdbcTemplate<T extends BaseEntity>
- *
- * @author M.Shubelko
- */
-public class JdbcTemplate<T extends BaseEntity> {
+public class JdbcTemplate<T> {
 
     private static final String GENERATED_KEY = "GENERATED_KEY";
 
