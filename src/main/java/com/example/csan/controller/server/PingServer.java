@@ -8,11 +8,12 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class PingServer implements Runnable {
     private static final double LOSS_RATE = 0.3;
     private static final int AVERAGE_DELAY = 100;
-    private final int port = 9991;
+    private final int port = 9992;
     private final DatagramSocket socket;
     private boolean isInterrupted = false;
     private int bufferSize = 32;
@@ -23,14 +24,12 @@ public class PingServer implements Runnable {
     }
 
     public void run() {
-
-        Random random = new Random();
+        System.out.println("Server is running...");
         try(socket) {
             while (!Thread.currentThread().isInterrupted()) {
                 DatagramPacket request = new DatagramPacket(new byte[bufferSize], bufferSize);
                 socket.receive(request);
-                printData(request);
-                socket.close();
+                addData(request);
                 InetAddress clientHost = request.getAddress();
                 int clientPort = request.getPort();
                 byte[] buf = request.getData();
@@ -45,7 +44,7 @@ public class PingServer implements Runnable {
         }
     }
 
-    private void printData(DatagramPacket request) throws Exception {
+    private void addData(DatagramPacket request) throws Exception {
         byte[] buf = request.getData();
         ByteArrayInputStream bais = new ByteArrayInputStream(buf);
         InputStreamReader isr = new InputStreamReader(bais);

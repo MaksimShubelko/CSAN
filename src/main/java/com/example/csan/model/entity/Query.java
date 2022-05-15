@@ -6,9 +6,9 @@ import java.util.Objects;
 public class Query {
     private int queryId;
     private String query;
-    private LocalDateTime date;
+    private String date;
 
-    public Query(int queryId, String query, LocalDateTime date) {
+    public Query(int queryId, String query, String date) {
         this.queryId = queryId;
         this.query = query;
         this.date = date;
@@ -30,11 +30,11 @@ public class Query {
         this.query = query;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

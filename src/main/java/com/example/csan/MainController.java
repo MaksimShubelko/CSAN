@@ -51,10 +51,6 @@ public class MainController implements Initializable {
 
     private QueryDao queryDao = QueryDaoImpl.getInstance();
 
-    private PingServer pingServer = new PingServer();
-
-    private Thread serverThread = new Thread(pingServer);
-
     private AdditionController additionController = new AdditionController();
 
     @FXML
@@ -77,9 +73,6 @@ public class MainController implements Initializable {
         Map<String, String> commands = parser.parseQuery(queryField.getText());
         pingClient.setAddress(parser.getAddress());
         try {
-            if (serverThread.isAlive()) {
-                serverThread.start();
-            }
             Command.setData(commands);
             pingClient.setIP_REGEX("");
             for (String command : commands.keySet()) {
@@ -157,6 +150,7 @@ public class MainController implements Initializable {
     }
 
     public void setPort(ActionEvent actionEvent) {
+        queryField.setDisable(false);
         setPort(Integer.parseInt(portBox.getValue()));
     }
 

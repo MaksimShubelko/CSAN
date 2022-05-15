@@ -5,6 +5,7 @@ import com.example.csan.model.entity.Query;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 
 import static com.example.csan.model.TableColumns.*;
 
@@ -14,7 +15,7 @@ public class QueryResultSetHandler implements ResultSetHandler<Query> {
     public Query resultToObject(ResultSet resultSet) throws SQLException {
             Query query = new Query(resultSet.getInt(QUERY_ID),
                 resultSet.getString(QUERY),
-                resultSet.getDate(DATE).toLocalDate().atStartOfDay());
+                resultSet.getDate(DATE).toLocalDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         return query;
     }

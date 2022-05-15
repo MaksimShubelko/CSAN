@@ -37,7 +37,7 @@
     <Pane fx:id="mainAnchorPane"  layoutX="0" layoutY="0" prefHeight="371.0" prefWidth="602.0">
         <Pane prefHeight="275.0" prefWidth="602.0">
             <children>
-                <TextField fx:id="queryField" layoutX="26.0" layoutY="46.0" prefHeight="38.0" prefWidth="390.0" promptText="Command" />
+                <TextField fx:id="queryField" disable="true" layoutX="26.0" layoutY="46.0" prefHeight="38.0" prefWidth="390.0" promptText="Command" />
                 <Button layoutX="450.0" layoutY="53.0" mnemonicParsing="false" onAction="#pingAddress" text="Ping" />
                 <TextArea fx:id="resultField" layoutX="26.0" layoutY="126.0" prefHeight="221.0" prefWidth="390.0" promptText="Console" />
                 <Button onAction="#clear" layoutX="449.0" layoutY="224.0" mnemonicParsing="false" text="Clear" />

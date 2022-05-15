@@ -17,6 +17,7 @@ public class PingClient implements Runnable {
     private boolean isInterrupted = false;
     private DatagramPacket ping;
     private String address;
+    private final int TTL = 32;
     private int countOfPackets = 10;
     private int length = 32;
     private int timeToWait = 500;
@@ -33,6 +34,7 @@ public class PingClient implements Runnable {
 
     public PingClient() throws SocketException {
         socket = new DatagramSocket(port);
+        socket.setSoTimeout(TTL);
     }
 
     public void run() {
@@ -77,7 +79,7 @@ public class PingClient implements Runnable {
                                     .append(sequence_number - 1)
                                     .append("\n");
                         } else {
-                            printData(ping, afterReceiving - beforeSending);
+                            addData(ping, afterReceiving - beforeSending);
                         }
                     }
                 }
@@ -92,7 +94,7 @@ public class PingClient implements Runnable {
         }
     }
 
-    private void printData(DatagramPacket request, long delayTime) throws Exception {
+    private void addData(DatagramPacket request, long delayTime) throws Exception {
         byte[] buf = request.getData();
         ByteArrayInputStream bais = new ByteArrayInputStream(buf);
         InputStreamReader isr = new InputStreamReader(bais);
